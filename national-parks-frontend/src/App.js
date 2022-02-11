@@ -12,8 +12,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path='/' element={ <SearchIndex /> } />
-        <Route path='/parks/:stateId' element={ <ParksList /> } />
-        <Route path='/parks/:stateId/:parkId' element={ <ParksPage /> } />
+        <Route path='/parks/:stateCode' element={ <ParksList /> } />
+        <Route path='/park/:parkCode' element={ <ParksPage /> } />
       </Routes>
     </div>
   );
