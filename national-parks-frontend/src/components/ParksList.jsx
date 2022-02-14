@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import ParkActivities from './ParkActivities'
 
 function ParksList() {
     const [parks, setParks] = useState([]);
@@ -21,18 +22,31 @@ function ParksList() {
         handleFetch()
     }, [])
 
+    let image = ".util/state-images/" + stateCode + ".jpg"
+    let imagetest = "../util/state-images/NY.jpg"
+
     return (
         <div>
             <h1>Parks List</h1>
-            {parks.map(data => {
-                return (
-                    <div key={data.parkCode}>
-                        <Link to={`/park/` + data.parkCode}>
-                            {data.fullName}
-                        </Link>
-                    </div>
-                )
+            <div>
+                <select>  
+                    <ParkActivities parks = {parks}/>
+                </select>
+            </div>
+            <div>
+                <img src={imagetest} />
+            </div>
+            <div>
+                {parks.map(data => {
+                    return (
+                        <div key={data.parkCode}>
+                            <Link to={`/park/` + data.parkCode}>
+                                {data.fullName}
+                            </Link>
+                        </div>
+                    )
                 })}
+            </div>
         </div>
     )
 }
