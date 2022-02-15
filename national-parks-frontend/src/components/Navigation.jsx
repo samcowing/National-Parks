@@ -10,8 +10,8 @@ function Navigation() {
                     url = {logo} 
                     playing = {true}
                     muted = {true}
-                    width = { "200px" }
-                    height = { "200px" }
+                    width = { "180px" }
+                    height = { "180px" }
                 />
             </Link>
         </nav>

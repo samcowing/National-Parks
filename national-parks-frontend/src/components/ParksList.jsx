@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import './images.css';
+import '../util/images.css';
 
 function ParksList() {
     const [parks, setParks] = useState([]);
@@ -26,30 +26,43 @@ function ParksList() {
         <div className={stateCode + " listBackground"}>
             <div className='page-container'>
                 <div className='list-container'>
-                    <div className='row row-cols-1 row-cols-md-2 g-4'>
-                        {parks.map(data => {
-                            return (
-                                <div className='col'>
-                                    <div className='card'>
-                                        <div key={data.parkCode}>
-                                            <div className='card-img-container'>
-                                                <img className='card-img-top' src={data.images[0].url} />
-                                            </div>
-                                            <div className='card-body'>
-                                                <div className='card-title'>
+                    <div className='row g-4'>
+                        <div className='col'>
+                            <div className='card-columns'>
+                                {parks.map((data, index) => {
+                                    return (
+                                        <div className='card border-0'>
+                                            <div key={data.parkCode}>
                                                 <Link to={`/park/` + data.parkCode}>
-                                                    {data.fullName}
-                                                </Link>
+                                                <div className='card-img-container'>
+                                                    <img className='card-img-top' src={data.images[0].url} />
                                                 </div>
-                                            <p className='card-text'>
-                                                {data.description}
-                                            </p>
+                                                <div className='card-body'>
+                                                    <div className='card-title'>
+                                                        <h4>
+                                                            {data.fullName}
+                                                        </h4>
+                                                    </div>
+                                                    <p className='card-text'>
+                                                        {data.description}
+                                                    </p>
+                                                </div>
+                                                </Link>
+                                                <div class="card-footer">
+                                                    <div>
+                                                        {data.activities.map(activity => 
+                                                            <span className='btn'>
+                                                                {activity.name}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            )
-                        })}
+                                    )
+                                })}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

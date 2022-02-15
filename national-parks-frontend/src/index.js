@@ -9,10 +9,8 @@ import $ from 'jquery';
 import Popper from 'popper.js';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <App />
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
