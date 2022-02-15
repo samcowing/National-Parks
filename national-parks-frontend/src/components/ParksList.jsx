@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
-import ParkActivities from './ParkActivities'
+import './images.css';
 
 function ParksList() {
     const [parks, setParks] = useState([]);
@@ -22,30 +22,36 @@ function ParksList() {
         handleFetch()
     }, [])
 
-    let image = ".util/state-images/" + stateCode + ".jpg"
-    let imagetest = "../util/state-images/NY.jpg"
-
     return (
-        <div>
-            <h1>Parks List</h1>
-            <div>
-                <select>  
-                    <ParkActivities parks = {parks}/>
-                </select>
-            </div>
-            <div>
-                <img src={imagetest} />
-            </div>
-            <div>
-                {parks.map(data => {
-                    return (
-                        <div key={data.parkCode}>
-                            <Link to={`/park/` + data.parkCode}>
-                                {data.fullName}
-                            </Link>
-                        </div>
-                    )
-                })}
+        <div className={stateCode + " listBackground"}>
+            <div className='page-container'>
+                <div className='list-container'>
+                    <div className='row row-cols-1 row-cols-md-2 g-4'>
+                        {parks.map(data => {
+                            return (
+                                <div className='col'>
+                                    <div className='card'>
+                                        <div key={data.parkCode}>
+                                            <div className='card-img-container'>
+                                                <img className='card-img-top' src={data.images[0].url} />
+                                            </div>
+                                            <div className='card-body'>
+                                                <div className='card-title'>
+                                                <Link to={`/park/` + data.parkCode}>
+                                                    {data.fullName}
+                                                </Link>
+                                                </div>
+                                            <p className='card-text'>
+                                                {data.description}
+                                            </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
             </div>
         </div>
     )

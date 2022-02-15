@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom'
+import logo from '../logo/S.mp4'
+import ReactPlayer from 'react-player'
 
 function Navigation() {
     return (
-        <nav className="navigation">
+        <nav className="nav">
             <Link to={`/`}>
-                <h1>Home</h1>
+                <ReactPlayer
+                    url = {logo} 
+                    playing = {true}
+                    muted = {true}
+                    width = { "200px" }
+                    height = { "200px" }
+                />
             </Link>
         </nav>
     )
