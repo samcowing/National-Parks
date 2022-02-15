@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import '../util/images.css';
+import '../styles/parkListCards.css';
 
 function ParksList() {
     const [parks, setParks] = useState([]);

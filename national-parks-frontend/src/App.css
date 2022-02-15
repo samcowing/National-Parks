@@ -54,45 +54,9 @@ a a:hover a:active{
   backdrop-filter: blur(5px);
 }
 
-.card {
-  background-color: antiquewhite;
-  break-inside: avoid;
-  margin-bottom: 15px;
-}
-
-.card-img-container {
-  overflow: hidden;
-}
-
-.card-img-top{
-  object-fit: cover;
-  max-height: 350px;
-}
-
-.card-img-top:hover {
-  transform: scale(1.1);
-}
-
-.card-text {
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-}
-
 a { 
   text-decoration: none !important;
   color: black !important;
-}
-
-.card-text:hover {
-  -webkit-line-clamp: unset; 
-}
-
-.card-footer {
-  display: wrap;
 }
 
 .jumbotron-fluid {
