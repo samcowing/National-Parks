@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Comfortaa:wght@300;400;500;600&family=Poiret+One&display=swap');
+
+.App {
+  text-align: left;
+  font-family: Comfortaa, cursive;
+  position: relative;
+  perspective: 8px;
+  perspective-origin: 0%;
+  overflow: visible;
+
+}
+
+nav {
+  position: sticky !important;
+  left: 0;
+  top: 0;
+}
+
+a a:hover a:active{
+  text-decoration: none;
+}
+
+.page-container {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: -150px;
+}
+
+.listBackground {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  background-size: 100vw;
+  height: max-content;
+  background-position-y: -100px;
+}
+
+.list-container {
+  padding-top: 40%;
+}
+
+.card-columns {
+  column-count: 2;
+  flex-wrap: nowrap;
+}
+
+.row {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 30px;
+  border-radius: 3px;
+  backdrop-filter: blur(5px);
+}
+
+a { 
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.jumbotron-fluid {
+  color: white;
+  border-radius: none;
+  margin-top: 5%;
+}
+
+.list-group-horizontal {
+  color: white;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.list-group-horizontal::-webkit-scrollbar-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+.activities-container {
+  margin-top: 5%;
+  margin-bottom: 12%;
+}
+
+.weather-container, .topics-container {
+  margin-top: 15px;
+}
+
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.right-side {
+  padding-left: 4%;
+}
+
+.directions-container, .contacts-container {
+  padding-top: 4%;
+}
+
+.contacts-container {
+  margin-bottom: 6%;
+}
+
+.detail-page-cards {
+  margin-top: 10%;
+}
+
+.search-page {
+  text-align: center;
+  color: white;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  background-size: 100vh;
+  background-size: cover;
+}
+
+.search-page-container {
+  margin-top: -180px;
+}
+
+.search-container {
+  padding-top: 15%;
+}
+
+.search-box {
+  background-color: #041e12;
+  margin-left: 30%;
+  margin-right: 30%;
+  padding-top: 2%;
+  padding-bottom: 2.5%;
+}
+
+.search-box select {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.search-box p {
+  margin-top: -10px;
+}
+
+.search-box h4 {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 900px) {
+  .card-columns {
+    column-count: 1;
+    flex-wrap: nowrap;
+  }
+}

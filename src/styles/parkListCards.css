@@ -1,0 +1,63 @@
+.list-page-card {
+    break-inside: avoid;
+    margin-bottom: 15px;
+    min-height: 300px;
+}
+
+.list-page-card .card-body {
+    position: absolute;
+	bottom: 0;
+	z-index: 1;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+    color: white;
+}
+
+.card-img-container {
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+  
+.card-img-top{
+    object-fit: cover;
+    max-height: 400px;
+    min-height: 300px;
+    opacity: .6;
+	-webkit-transition: all 4s ease;
+	-moz-transition: all 4s ease;
+	-o-transition: all 4s ease;
+	-ms-transition: all 4s ease;
+	transition: all 4s ease;
+}
+  
+.list-page-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+  
+.card-text {
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.list-page-card:hover .card-text {
+    -webkit-line-clamp: unset; 
+}
+
+.card-footer {
+    background-color: green;
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+    .card-img-top{
+        object-fit: cover;
+        max-height: 700px;
+        min-height: 500px;
+    }
+}
