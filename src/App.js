@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import SearchIndex from "./components/SearchIndex"
 import ParksList from './components/ParksList'
 import ParksPage from './components/ParksPage'

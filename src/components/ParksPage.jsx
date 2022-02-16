@@ -1,10 +1,9 @@
 import { useParams } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import initialState from '../util/initialData';
-import { map } from 'jquery';
+import uuid from 'react-uuid'
 
 function ParksPage() {
-    
     const [park, setPark] = useState(initialState);
     const { parkCode } = useParams()
 
@@ -16,13 +15,10 @@ function ParksPage() {
             const parkData = await resp.json()
             const foundPark = await parkData.data[0]
             setPark(foundPark)
-            console.log(foundPark)
         } catch (err) {
             console.log(err)
         }
     }
-
-    console.log(park)
 
     useEffect(() => {
         handleFetch()
@@ -40,24 +36,24 @@ function ParksPage() {
                 </div>
                 <div className='left-side col-3'>
                     <div className='activities-container card'>
-                        <div class="card-header">
+                        <div className="card-header">
                             Activities
                         </div>
                         <ul className='list-group'>
                             {park.activities.map(activity =>
-                                <li className="list-group-item flex-fill">
+                                <li key={activity.id} className="list-group-item flex-fill">
                                     {activity.name}
                                 </li>
                             )}
                         </ul>
                     </div>
                     <div className='topics-container card'>
-                        <div class="card-header">
+                        <div className="card-header">
                             Topics
                         </div>
                         <ul className='list-group'>
                             {park.topics.map(topic =>
-                                <li className="list-group-item flex-fill">
+                                <li key={topic.id} className="list-group-item flex-fill">
                                     {topic.name}
                                 </li>
                             )}
@@ -121,10 +117,10 @@ function ParksPage() {
                             <div className='card-columns'>
                                 {park.images.map((data, index) => {
                                     return (
-                                        <div className='card border-0 list-page-card'>
-                                            <div key={data.credit}>
+                                        <div key={uuid()} className='card border-0 list-page-card'>
+                                            <div>
                                                 <div className='card-img-container'>
-                                                    <img className='card-img-top' src={data.url} />
+                                                    <img className='card-img-top' alt={data.altText} src={data.url} />
                                                 </div>
                                                 <div className='card-body flex-fill'>
                                                     <div className='card-title'>
@@ -134,7 +130,7 @@ function ParksPage() {
                                                     </div>
                                                     <p className='card-text'>
                                                         {data.caption} <br/>
-                                                        <small class="text-muted">
+                                                        <small className="text-muted">
                                                             &#8212;&nbsp;{data.credit}
                                                         </small>
                                                     </p>

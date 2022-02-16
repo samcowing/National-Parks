@@ -33,11 +33,11 @@ function ParksList() {
                             <div className='card-columns'>
                                 {parks.map((data, index) => {
                                     return (
-                                        <div className='card border-0 list-page-card'>
-                                            <div key={data.parkCode}>
+                                        <div key={data.parkCode} className='card border-0 list-page-card'>
+                                            <div>
                                                 <Link to={`/park/` + data.parkCode}>
                                                 <div className='card-img-container'>
-                                                    <img className='card-img-top' src={data.images[0].url} />
+                                                    <img className='card-img-top' alt="" src={data.images[0].url} />
                                                 </div>
                                                 <div className='card-body flex-fill'>
                                                     <div className='card-title'>
