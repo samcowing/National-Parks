@@ -16,7 +16,7 @@ Fork and clone this respository, and npm install the following:
 - react-uuid
 - react-player
 - react-helmet
-- bootstap
+- bootstrap
 
 ## Tecnologies Used
 React, NPS API (https://www.nps.gov/subjects/developer/api-documentation.htm#/), Bootstrap
