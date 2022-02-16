@@ -62,16 +62,75 @@ a {
 .jumbotron-fluid {
   color: white;
   border-radius: none;
+  margin-top: 5%;
 }
 
 .list-group-horizontal {
   color: white;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
-.topics-container h4, .activities-container h4 {
-  color: white;
+.list-group-horizontal::-webkit-scrollbar-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #555555 transparent;
+}
+
+.activities-container {
+  margin-top: 5%;
+  margin-bottom: 12%;
 }
 
 .weather-container, .topics-container {
   margin-top: 15px;
+}
+
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.right-side {
+  padding-left: 4%;
+}
+
+.directions-container, .contacts-container {
+  padding-top: 4%;
+}
+
+.contacts-container {
+  margin-bottom: 6%;
+}
+
+.detail-page-cards {
+  margin-top: 10%;
+}
+
+.search-page {
+  text-align: center;
+  color: white;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center top;
+  background-size: 100vw;
+}
+
+.search-page-container {
+  margin-top: -180px;
+}
+
+.search-container {
+  padding-top: 20%;
+}
+
+.search-box {
+  background-color: #041e12;
+}
+
+@media screen and (max-width: 900px) {
+  .card-columns {
+    column-count: 1;
+    flex-wrap: nowrap;
+  }
 }

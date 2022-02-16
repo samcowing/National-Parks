@@ -12,17 +12,23 @@ function SearchIndex() {
     }
 
     return (
-        <div>
-            <h1>Homepage</h1>
-            <h4>Enter a state</h4>
-            <form className="header__form">
-                <select onChange={handleChange}>
-                    <StateList />
-                </select>
-                <Link to={`/parks/` + state}>
-                    <button>Find parks</button>
-                </Link>
-            </form>
+        <div className='search-page home'>
+            <div className='search-page-container'>
+                <div className='search-container'>
+                    <div className='search-box'>
+                        <h1>Homepage</h1>
+                        <h4>Enter a state</h4>
+                        <form className="header__form">
+                            <select onChange={handleChange}>
+                                <StateList />
+                            </select>
+                            <Link to={`/parks/` + state}>
+                                <button>Find parks</button>
+                            </Link>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

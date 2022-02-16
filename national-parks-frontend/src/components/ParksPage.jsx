@@ -10,7 +10,8 @@ function ParksPage() {
 
     const handleFetch = async () => {
         try {
-            const URL = "https://developer.nps.gov/api/v1/parks?api_key=9SQb1si6TjCRdRJDP7Q90kRhHmVbs0rhSMDU0p0Q&parkCode=" + parkCode
+            const key = process.env.REACT_APP_API_KEY
+            const URL = `https://developer.nps.gov/api/v1/parks?api_key=${key}&parkCode=${parkCode}`
             const resp = await fetch(URL)
             const parkData = await resp.json()
             const foundPark = await parkData.data[0]
@@ -29,7 +30,7 @@ function ParksPage() {
     
     return (
         <div>
-            <div className='page-container'>
+            <div className='page-container detail-container'>
                 <div className='jumbotron-fluid'>
                     <h1 className='display-4'>{park.fullName}</h1>
                     <p className='lead'>
@@ -37,72 +38,112 @@ function ParksPage() {
                     </p>
                     <hr/>
                 </div>
-                <div className='activities-container'>
-                    <h4>Activities</h4>
-                    <ul className='list-group list-group-horizontal flex-wrap'>
-                        {park.activities.map(activity =>
-                            <li className="list-group-item flex-fill">
-                                {activity.name}
-                            </li>
-                        )}
-                    </ul>
-                </div>
-                <div className='topics-container'>
-                    <h4>Topics</h4>
-                    <ul className='list-group list-group-horizontal flex-wrap'>
-                        {park.topics.map(topic =>
-                            <li className="list-group-item flex-fill">
-                                {topic.name}
-                            </li>
-                        )}
-                    </ul>
-                </div>
-                <div className='weather-container'>
-                    <div className='card'>
-                        <div className='card-header'>
-                            Weather
+                <div className='left-side col-3'>
+                    <div className='activities-container card'>
+                        <div class="card-header">
+                            Activities
                         </div>
-                        <div className='card-body'>
-                            <h6>
-                                {park.weatherInfo}
-                            </h6>
+                        <ul className='list-group'>
+                            {park.activities.map(activity =>
+                                <li className="list-group-item flex-fill">
+                                    {activity.name}
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                    <div className='topics-container card'>
+                        <div class="card-header">
+                            Topics
                         </div>
+                        <ul className='list-group'>
+                            {park.topics.map(topic =>
+                                <li className="list-group-item flex-fill">
+                                    {topic.name}
+                                </li>
+                            )}
+                        </ul>
                     </div>
                 </div>
-                <div className='directions-container'>
-                    <div className='card'>
-                        <div className='card-header'>
-                            Directions
+                <div className='right-side col-9'>
+                    <div className='weather-container'>
+                        <div className='card detail-page-card'>
+                            <div className='card-header'>
+                                Weather
+                            </div>
+                            <div className='card-body'>
+                                <h6>
+                                    {park.weatherInfo}
+                                </h6>
+                            </div>
                         </div>
-                        <div className='card-body'>
-                            <h5 className='card-title'>
-                                {park.directionsInfo}
-                            </h5>
-                            <h6>
-                                {park.addresses[0].line1},  
-                                {park.addresses[0].city}, 
-                                {park.addresses[0].stateCode}, 
-                                {park.addresses[0].postalCode} 
+                    </div>
+                    <div className='directions-container'>
+                        <div className='card detail-page-card'>
+                            <div className='card-header'>
+                                Directions
+                            </div>
+                            <div className='card-body'>
+                                <h6 className='card-title'>
+                                    {park.directionsInfo}
+                                </h6>
+                                <hr/>
+                                <h5>
+                                    {park.addresses[0].line1},<br/> 
+                                    {park.addresses[0].city},<br/>
+                                    {park.addresses[0].stateCode},&nbsp;
+                                    {park.addresses[0].postalCode} 
 
-                            </h6>
-                            <a href={park.directionsUrl}>
-                                {park.directionsUrl}
-                            </a>
+                                </h5>
+                                <hr/>
+                                <a href={park.directionsUrl}>
+                                    {park.directionsUrl}
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='contacts-container'>
-                    <div className='card'>
-                        <div className='card-header'>
-                            Contact
+                    <div className='contacts-container'>
+                        <div className='card detail-page-card'>
+                            <div className='card-header'>
+                                Contact
+                            </div>
+                            <div className='card-body'>
+                                <h6 className='card-title'>
+                                    Phone: {park.contacts.phoneNumbers[0].phoneNumber}
+                                </h6>
+                                <h6 className='card-title'>
+                                    Email: {park.contacts.emailAddresses[0].emailAddress}
+                                </h6>
+                            </div>
                         </div>
-                        <div className='card-body'>
-                            <h5 className='card-title'>
-                                Phone: {park.contacts.phoneNumbers[0].phoneNumber}
-                            </h5>
-                            <h5 className='card-title'>
-                                Email: {park.contacts.emailAddresses[0].emailAddress}
-                            </h5>
+                    </div>
+                    <div className='row g-4'>
+                        <div className='col'>
+                            <div className='card-columns'>
+                                {park.images.map((data, index) => {
+                                    return (
+                                        <div className='card border-0 list-page-card'>
+                                            <div key={data.credit}>
+                                                <div className='card-img-container'>
+                                                    <img className='card-img-top' src={data.url} />
+                                                </div>
+                                                <div className='card-body flex-fill'>
+                                                    <div className='card-title'>
+                                                        <h4>
+                                                            {data.title}
+                                                        </h4>
+                                                    </div>
+                                                    <p className='card-text'>
+                                                        {data.caption} <br/>
+                                                        <small class="text-muted">
+                                                            &#8212;&nbsp;{data.credit}
+                                                        </small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
