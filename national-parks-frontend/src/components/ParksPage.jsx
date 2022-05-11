@@ -34,7 +34,7 @@ function ParksPage() {
                     </p>
                     <hr/>
                 </div>
-                <div className='left-side col-3'>
+                <div className='left-side col-sm-3'>
                     <div className='activities-container card'>
                         <div className="card-header">
                             Activities
@@ -60,7 +60,7 @@ function ParksPage() {
                         </ul>
                     </div>
                 </div>
-                <div className='right-side col-9'>
+                <div className='right-side col-sm-9'>
                     <div className='weather-container'>
                         <div className='card detail-page-card'>
                             <div className='card-header'>

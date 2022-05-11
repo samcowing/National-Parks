@@ -180,4 +180,13 @@ a {
     max-height: 120px;
     max-width: 120px;
   }
+
+  .jumbotron-fluid {
+    margin-top: 120px;
+  }
+
+  .right-side {
+    padding-left: 0%;
+    max-width: 96%;
+  }
 }

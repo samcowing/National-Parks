@@ -36,6 +36,7 @@ function Navigation() {
                     playing = {true}
                     className = {'react-player'}
                     muted = {true}
+                    playsinline = {true}
                     width = {"180px"}
                     height = {"180px"}
                 />
