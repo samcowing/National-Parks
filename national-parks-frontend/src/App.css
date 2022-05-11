@@ -148,6 +148,17 @@ a {
   margin-right: 10px;
 }
 
+.state-container {
+  margin-left: 45%;
+  margin-right: 50%;
+  color: whitesmoke
+}
+
+.state-container h5 {
+  margin-top: -25px;
+  position: fixed;
+}
+
 @media screen and (max-width: 900px) {
   .card-columns {
     column-count: 1;
