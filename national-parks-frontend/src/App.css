@@ -170,6 +170,12 @@ a {
     flex-wrap: nowrap;
   }
 
+  .search-box {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 100px;
+  }
+
   video {
     max-height: 120px;
     max-width: 120px;
