@@ -14,6 +14,11 @@ nav {
   position: sticky !important;
   left: 0;
   top: 0;
+  z-index: 99;
+}
+
+.hidden {
+  z-index: 0;
 }
 
 a a:hover a:active{
@@ -163,5 +168,10 @@ a {
   .card-columns {
     column-count: 1;
     flex-wrap: nowrap;
+  }
+
+  video {
+    max-height: 120px;
+    max-width: 120px;
   }
 }
